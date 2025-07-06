@@ -78,8 +78,9 @@
   }
 
   section.portada .portada-picture {
-    width: 100%;
+     width: 100%;
     height: 335px;
+    min-height: 400px;
     position: relative;
   }
 

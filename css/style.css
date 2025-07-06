@@ -299,10 +299,12 @@ section.portada .portada-picture::before {
   width: 100%;
   height: 100%;
   background-color: rgba(196, 26, 26, 0);
-  background-image: url('../images/Design\ sem\ nome\ \(8\).png'); /* <-- aqui vai o caminho da imagem */
+  background-image: url('../images/inico.png'); /* <-- aqui vai o caminho da imagem */
   z-index: 0;
   top: 0;
   left: 0;
+  background-size: cover;
+  background-position: center;
 }
 
 section.portada .portada-picture::after {
@@ -600,7 +602,7 @@ section.ceremonia-fiesta .col-fiesta h3 {
 
 section.ceremonia-fiesta .col-ceremonia h3:after,
 section.ceremonia-fiesta .col-fiesta h3:after {
-  background-image: url(../images/img_cinta02.svg);
+  background-image: url(../images/img_cinta02.png);
   position: absolute;
   content: '';
   background-size: contain !important;
@@ -614,7 +616,7 @@ section.ceremonia-fiesta .col-fiesta h3:after {
 
 section.ceremonia-fiesta .col-ceremonia h3:before,
 section.ceremonia-fiesta .col-fiesta h3:before {
-  background-image: url(../images/img_cinta01.svg);
+  background-image: url(../images/img_cinta01.png);
   position: absolute;
   content: '';
   background-size: contain !important;
