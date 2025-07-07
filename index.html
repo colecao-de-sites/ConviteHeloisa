@@ -280,7 +280,7 @@
 
       <div class="content-galeria">
 
-        <h2 class="title" style="color: #892b83;">Alguns momentos desses dois anos</h2>
+        <h2 class="title">Alguns momentos desses dois anos</h2>
         <p class="subtitle">Ser criança é viver momentos mágicos!</p>
 
         <div class="anim-galeria"></div>
@@ -427,7 +427,10 @@
     <div id="play-pause-music" data-estado-music="pause" class="music-anim-icon"></div>
   </div>
 
-  <audio id="player-musica-fondo" src="musica/musica-fundo.mp3" loop></audio>
+ <!-- <div id="player-musica-fondo"></div>-->
+
+  <audio id="player-musica-fondo" src="musica/Tempo_Vai_DevagarBárbara_Dias.mp3" preload="auto" loop></audio>
+
 
 
 
@@ -864,52 +867,41 @@
           $('body').addClass("backdrop-modal-musica");
         }).on('hide.bs.modal', function(e) {
           $('body').removeClass("backdrop-modal-musica");
-        })
-
-        // Btn play music modal
-        $('body').on('click', '#play-music-modal', function(e) {
-
-          e.preventDefault();
-
-          $('#play-pause-music').attr('data-estado-music', 'play');
-          animMusicAnimIcon.play();
-          player.playVideo();
-
-          $('#modalMusica').modal('hide');
-
         });
       </script>
 
     
 
     <!-- Musica de fondo -->
-    <script>
-  var player = document.getElementById('player-musica-fondo');
-  player.volume = 0.8;
+   <script>
+  $(document).ready(function () {
+    var player = document.getElementById('player-musica-fondo');
+    player.volume = 0.8;
 
-  // Play ao clicar no botão do modal
-  $('body').on('click', '#play-music-modal', function (e) {
-    e.preventDefault();
-    $('#play-pause-music').attr('data-estado-music', 'play');
-    animMusicAnimIcon.play();
-    player.play();
-    $('#modalMusica').modal('hide');
-  });
-
-  // Controle de play/pause
-  $('body').on('click', '#play-pause-music', function (e) {
-    e.preventDefault();
-    var estado = $(this).attr('data-estado-music');
-
-    if (estado == 'pause') {
-      $(this).attr('data-estado-music', 'play');
+    // Clique no botão do modal para iniciar a música
+    $('body').on('click', '#play-music-modal', function (e) {
+      e.preventDefault();
+      $('#play-pause-music').attr('data-estado-music', 'play');
       animMusicAnimIcon.play();
       player.play();
-    } else {
-      $(this).attr('data-estado-music', 'pause');
-      animMusicAnimIcon.stop();
-      player.pause();
-    }
+      $('#modalMusica').modal('hide');
+    });
+
+    // Controle do ícone de música flutuante
+    $('body').on('click', '#play-pause-music', function (e) {
+      e.preventDefault();
+      var estado = $(this).attr('data-estado-music');
+
+      if (estado === 'pause') {
+        $(this).attr('data-estado-music', 'play');
+        animMusicAnimIcon.play();
+        player.play();
+      } else {
+        $(this).attr('data-estado-music', 'pause');
+        animMusicAnimIcon.stop();
+        player.pause();
+      }
+    });
   });
 </script>
 
