@@ -61,7 +61,8 @@
 </div>
 <!-- END PRELOADER AREA -->
 
-    
+    <audio id="player-musica-fondo" src="musica/Tempo_Vai_DevagarBárbara_Dias.mp3" loop></audio>
+
       <!-- Modal musica fondo -->
       <div id="modalMusica" class="modal fade" tabindex="-1">
   <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -85,7 +86,7 @@
         <span>A música de fundo faz parte da experiência</span>
 
         <br>
-        <a class="boton" id="play-music-modal" href="">Entrar com música</a>
+        <a class="boton" id="play-music-modal" src="musica/Tempo_Vai_DevagarBárbara_Dias.mp3" loop>Entrar com música</a>
         <a class="boton" data-dismiss="modal" aria-label="Close" id="" href="">Entrar sem música</a>
       </div>
 
@@ -149,7 +150,7 @@
             <p>
               <img src="images/comilla-apertura.svg" alt=""> <br>
 
-             Convido você para comemorar comigo essa tarde divertida e única! <br>
+             Convido você para comemorar comigo meu aniversário de 2 aninhos! <br>
 
               <img src="images/comilla-cierre.svg" alt="">
             </p>
@@ -280,7 +281,7 @@
 
       <div class="content-galeria">
 
-        <h2 class="title">Alguns momentos desses dois anos</h2>
+        <h2 class="title" style="color: #892b83;">Alguns momentos desses dois anos</h2>
         <p class="subtitle">Ser criança é viver momentos mágicos!</p>
 
         <div class="anim-galeria"></div>
@@ -727,7 +728,7 @@
   
 
     // Cuenta regresiva
-  var fechaCuentaRegresiva = "Jul 19, 2025 17:00:00";
+  var fechaCuentaRegresiva = "Jul 19, 2025 18:00:00";
 
     // Mapas
     var latitudFiesta = -22.9075322;
@@ -847,7 +848,32 @@
 
 
 
-  
+<script>
+  // Espera o carregamento da página
+  window.addEventListener('load', function () {
+    // Mostra o modal ao entrar no site
+    $('#modalMusica').modal({ backdrop: 'static' });
+  });
+
+  // Atribui função ao botão "Entrar com música"
+  document.getElementById('play-music-modal').addEventListener('click', function (e) {
+    e.preventDefault(); // Evita recarregar a página
+
+    const audio = document.getElementById('player-musica-fondo');
+    audio.play(); // Inicia a música
+
+    // Fecha o modal
+    $('#modalMusica').modal('hide');
+
+    // Atualiza estado (se você estiver controlando via data-estado-music em outro lugar)
+    const btnControlador = document.getElementById('play-pause-music');
+    if (btnControlador) {
+      btnControlador.setAttribute('data-estado-music', 'play');
+    }
+  });
+</script>
+
+
 
     <!-- Modal musica inicio -->
     
@@ -900,7 +926,7 @@
           height: '10',
           width: '10',
           playerVars: {
-            playlist: 'BdD_D9HWR0o',
+            playlist: 'XSISUTXTrHM',
             loop: 1
           },
           events: {
